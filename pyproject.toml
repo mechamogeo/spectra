@@ -1,0 +1,42 @@
+[project]
+name = "spectra"
+version = "0.1.0"
+description = "Speech Classification & Transcription Analysis"
+authors = [{ name = "Geovani Perez França", email = "me@geovani.dev" }]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "langchain-community (>=0.3.18,<0.4.0)",
+    "langchain (>=0.3.19,<0.4.0)",
+    "numpy (>=2.2.3,<3.0.0)",
+    "matplotlib (>=3.10.1,<4.0.0)",
+    "llvmlite (>=0.40.0)",
+    "faster-whisper (>=1.1.1,<2.0.0)",
+    "praat-parselmouth (>=0.4.5,<0.5.0)",
+    "langchain-openai (>=0.3.7,<0.4.0)",
+    "langchain-ollama (>=0.2.3,<0.3.0)",
+    "fastapi (>=0.115.11,<0.116.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "soundfile (>=0.13.1,<0.14.0)",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.poetry]
+packages = [{ include = "src" }]
+package-mode = false
+
+[tool.poetry.scripts]
+start = "src.core.app:start"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pytest-cov = "^6.0.0"
+soundfile = "^0.13.1"
+httpx = "^0.28.1"
